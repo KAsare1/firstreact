@@ -4,12 +4,15 @@ import React, { useState } from 'react';
 
 export default function App() {
   const [name, setName] = useState("Kofi");
+  const clickhandler = () =>{
+    setName('Asare');
+  };
   return (
     <View style={styles.container}>
       <Text>Hello, I'm {name}</Text>
       <Text>This Is My First React Native App</Text>
       <Text> Kwame </Text>
-      <Button title='woww'/>
+      <Button title='woww' onPress= {clickhandler}/>
       <StatusBar style="auto"/>
     </View>
   );
