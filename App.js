@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Image, ScrollView } from 'react-native';
 import React, { useState } from 'react';
 
 export default function App() {
@@ -7,14 +7,27 @@ export default function App() {
   const clickhandler = () =>{
     setName('Asare');
   };
+  const [people, setPeople] = useState([
+    {name:'kwame', key:'1',},
+    {name:'kwamd', key:'2',},
+    {name:'kwamwf', key:'3',},
+    {name:'kwaree', key:'4',},
+    {name:'kwacme', key:'5',},
+    {name:'kac', key:'6',},
+  ]);
   return (
     <View style={styles.container}>
-      <Text>Hello, I'm </Text>
-      <TextInput onChangeText={(val)=>setName(val)}/>
-      <Text>This Is My First React Native App</Text>
-      <Text> Kwame </Text>
-      <Button title='woww' onPress= {clickhandler}/>
-      <StatusBar style="auto"/>
+      <ScrollView>
+      {people.map((names)=>{
+        return (
+          <View>
+          <Text style={styles.item}>{names.name}</Text>
+        </View>
+        )
+      })}
+      </ScrollView>
+
+
     </View>
   );
 }
@@ -31,6 +44,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent:'center'
     
+  },
+  item: {
+    marginTop: '24',
+    padding: '30',
+    backgroundColor: 'pink',
+    fontSize: '20'
   }
 });
 
