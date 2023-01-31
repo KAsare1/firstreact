@@ -1,32 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput, Image, ScrollView } from 'react-native';
 import React, { useState } from 'react';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 export default function App() {
-  const [name, setName] = useState("Kofi");
-  const clickhandler = () =>{
-    setName('Asare');
-  };
   const [people, setPeople] = useState([
-    {name:'kwame', key:'1',},
-    {name:'kwamd', key:'2',},
-    {name:'kwamwf', key:'3',},
-    {name:'kwaree', key:'4',},
-    {name:'kwacme', key:'5',},
-    {name:'kac', key:'6',},
+    { name: 'shaun', id: '1' },
+    { name: 'yoshi', id: '2' },
+    { name: 'mario', id: '3' },
+    { name: 'luigi', id: '4' },
+    { name: 'peach', id: '5' },
+    { name: 'toad', id: '6' },
+    { name: 'bowser', id: '7' },
   ]);
+
   return (
     <View style={styles.container}>
-      <ScrollView>
-      {people.map((names)=>{
-        return (
-          <View>
-          <Text style={styles.item}>{names.name}</Text>
-        </View>
-        )
-      })}
-      </ScrollView>
 
+      <FlatList 
+        numColumns={2}
+        keyExtractor={(item) => item.id} 
+        data={people} 
+        renderItem={({ item }) => ( 
+          <Text style={styles.item}>{item.name}</Text>
+        )}
+      />
 
     </View>
   );
@@ -35,21 +31,32 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 40,
+    paddingHorizontal: 20,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  header: {
-    flex:1,
-    alignItems: 'center',
-    justifyContent:'center'
-    
   },
   item: {
-    marginTop: '24',
-    padding: '30',
+    flex: 1,
+    marginHorizontal: 10,
+    marginTop: 24,
+    padding: 30,
     backgroundColor: 'pink',
-    fontSize: '20'
-  }
+    fontSize: 24,
+  },
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
