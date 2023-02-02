@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginTop: 24,
     padding: 30,
-    backgroundColor: 'pink',
+    backgroundColor: 'yellow',
     fontSize: 24,
   },
 });
